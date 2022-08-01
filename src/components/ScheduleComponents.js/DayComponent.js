@@ -2,48 +2,61 @@ import styled from "styled-components";
 
 export default function Day({day, schedule}) {
 
-    console.log(day, schedule);
-
     return(
         <DayDiv>
+            <div className="day-container">
             <h2>{day.nome}</h2>
-            {schedule.map(s => s.diaId === day.id && (
-                <p>{s.hora}h - {s.nome}</p>
-            ))}
-            
+            </div>
+            <div className="events-container">
+                {schedule.map(s => s.diaId === day.id && (
+                    <p><strong>{s.hora}h</strong> - {s.nome}</p>
+                ))}
+            </div>
         </DayDiv>
     )
 }
 
 const DayDiv = styled.div`
 
+    width: 300PX;
+    height: 300PX;
+
     background-color: white;
 
-    padding: 20px 30px;
+    .day-container{
 
-    border-left: solid 6px rgba(42, 62, 55);
+        display: flex;
+        align-items: center;
 
-    width: 100%;
+        padding: 0 20px;
 
-    margin-bottom: 20px;
+        height: 50px;
+        width: 100%;
 
-    border-radius: 0px 15px 15px 0px;
+        background-color: rgba(42, 62, 55, 0.8);
 
-    filter: drop-shadow(0px 0px 10px rgb(0, 0, 0, 0.08));
-
-    h2{
-        font-family: 'Roboto', sans-serif;
-        font-size: 20px;
-        font-weight: bold;
-
-        margin-bottom: 25px;
+        h2{
+            color: #FFFFFF;
+            font-family: 'Roboto', sans-serif;
+            font-size: 20px;
+            font-weight: bold;
+    }
     }
 
-    p{
-        font-family: 'Roboto', sans-serif;
-        font-size: 16px;
-        font-weight: regular;
+    .events-container{
 
-        line-height: 25px;
-    }
+        padding: 20px;
+
+        p{
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            font-weight: regular;
+
+            line-height: 30px;
+        }
+
+        strong{
+            font-weight: 800;
+        }
+    } 
 `

@@ -1,6 +1,4 @@
-import { Parallax } from "react-parallax";
 import styled from "styled-components";
-import img from "../../assets/1553703831392.jpeg"
 import { useState, useEffect } from "react";
 import Day from "../ScheduleComponents.js/DayComponent";
 import axios from "axios";
@@ -29,29 +27,34 @@ export default function Schedule(){
     while(schedule === null) return <h1>carregando</h1>
 
     return (
+    <ScheduleDiv>
+        <div className="schedule-container">
+            {days.map(day => (
+                <Day day={day} schedule={schedule}/>
+            ))}
+        </div>
+    </ScheduleDiv>
 
-    <Parallax className="schedule" bgImage={img} strength={900} blur={0}>
-        <ScheduleDiv>
-            <div>
-            <h1>Programação</h1>
-                {days.map(day => (
-                    <Day day={day} schedule={schedule}/>
-                ))}
-            </div>
-        </ScheduleDiv>
-    </Parallax>
 )
 
 }
 
 const ScheduleDiv = styled.h1`
 
-    div{
+    .schedule-container{
 
-        width: 730px;
+        width: 100%;
+        height: 500PX;
 
         display: flex;
-        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        gap: 30px;
+
+        padding: 50px 0;
+
+        background-color: rgba(42, 62, 55, 0.9);
 
         h1{
             font-family: 'Roboto', sans-serif;
@@ -61,17 +64,6 @@ const ScheduleDiv = styled.h1`
 
             margin-bottom: 40px;
         }
-
-        h2{
-            font-family: 'Roboto', sans-serif;
-            font-size: 20px;
-            font-weight: bold;
-            color: #000000;
-        }
     }
-    
-    margin-top: 22px;
-
-    filter: drop-shadow(0 0 2rem black);
 `
 

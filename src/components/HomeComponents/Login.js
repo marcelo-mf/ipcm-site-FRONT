@@ -1,6 +1,7 @@
 import { IoClose } from "react-icons/io5";
 import { useNavigate } from "react-router";
 import { useState } from "react";
+import Logo from "../../assets/Logo.png"
 import styled from "styled-components";
 import axios from "axios";
 
@@ -39,6 +40,7 @@ export default function Login({showLogin, setShowLogin}) {
         <LoginDiv>
             <LoginContainer>
                 <IoClose onClick={() => handleClick()} className="close" color="#000000" size={30}/>
+                <img src={Logo} alt="logo"/>
                 <h1>Fazer Login</h1>
                 <input type="text" placeholder="usuario" name="usuario" value={formData.usuario} onChange={(e) =>handleChange(e)} disabled={isDisabled}/>
                 <input type="password" placeholder="senha" name="senha" value={formData.senha} onChange={(e) =>handleChange(e)} disabled={isDisabled}/>
@@ -82,11 +84,13 @@ const LoginContainer = styled.div`
     width: 400px;
     height: 600px;
 
-    border-radius: 20px;
-
     background-color: #FFFFFF;
 
     z-index: 21;
+
+    img{
+        height: 100px;
+    }
 
     .close{
         position: absolute;
@@ -98,18 +102,21 @@ const LoginContainer = styled.div`
 
     h1{
         font-family: 'Roboto';
-        font-size: 30px;
+        font-size: 22px;
         font-weight: 500;
 
-        margin-bottom: 60px;
+        margin-bottom: 30px;
+        margin-top: 15px;
     }
 
     input{
         height: 45px;
         width: 70%;
 
-        border: solid 1px grey;
-        border-radius: 8px;
+        background-color: #f1f1f1;
+
+        border: none;
+        outline: none;
 
         padding: 0 10px;
     }
@@ -118,7 +125,6 @@ const LoginContainer = styled.div`
         height: 45px;
         width: 70%;
 
-        border-radius: 8px;
         border: none;
 
         background-color: rgba(42, 62, 55);
@@ -128,6 +134,10 @@ const LoginContainer = styled.div`
         font-weight: 500;
 
         cursor: pointer;
+
+        :hover{
+            background-color: rgba(42, 62, 55, 0.9);
+        }
     }
     
 `

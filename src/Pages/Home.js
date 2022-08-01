@@ -1,13 +1,14 @@
 import styled from "styled-components";
 import AboutUs from "../components/HomeComponents/AboutUs";
-import Header from "../components/HomeComponents/Header";
 import HomeMenu from "../components/HomeComponents/HomeMenu";
 import Schedule from "../components/HomeComponents/Schedule";
-import ThemeDiv from "../components/HomeComponents/Theme";
 import ContactUs from "../components/HomeComponents/ContactUs";
 import Footer from "../components/HomeComponents/Footer";
+import SocialLinks from "../components/HomeComponents/SocialLinks";
 import { useState } from "react";
 import Login from "../components/HomeComponents/Login";
+import Theme from "../components/HomeComponents/Theme";
+import Map from "../components/HomeComponents/Map";
 
 
 export default function Home() {
@@ -16,12 +17,13 @@ export default function Home() {
 
     return(
         <HomeContainer>
-            <Header />
             <HomeMenu />
-            <ThemeDiv />
+            <Theme />
             <AboutUs />
             <Schedule />
+            <SocialLinks />
             <ContactUs />
+            <Map />
             <Footer setShowLogin={setShowLogin} showLogin={showLogin}/>
             {showLogin && <Login setShowLogin={setShowLogin} showLogin={showLogin}/>}
         </HomeContainer>
@@ -34,16 +36,6 @@ const HomeContainer = styled.div`
     width: 100%;
 
     background-color: #FFFFFF;
-
-    .theme{
-        height: 370px;
-
-        margin-top: -45px;
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
 
     .schedule{
         height: 970px;

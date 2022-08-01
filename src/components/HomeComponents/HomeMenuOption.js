@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export default function HomeMenuOption({text, section, setSection}) {
+export default function HomeMenuOption({text, section}) {
 
     const HomeMenuOptionContainer = styled.div`
 
@@ -14,26 +14,24 @@ export default function HomeMenuOption({text, section, setSection}) {
 
         cursor: pointer;
 
-        border-bottom: ${section === text ? 'solid 2px white' : 'none'};
-
         p{
             font-family: 'Roboto', sans-serif;
             font-size: 18px;
             font-weight: 500;
-            color: white;
+            color: ${section === text ? 'rgba(42, 62, 55)' : '#c4c4c4'};
         }
     `
 
     
     return(
         <HomeMenuOptionContainer onClick={() => {
-            setSection(text)
+
             if(text === 'Sobre Nós') {
-                window.scrollTo({top: 0, behavior: "smooth"})
+                window.scrollTo({top: 620, behavior: "smooth"})
             } else if(text === 'Programação') {
-                window.scrollTo({top: 970, behavior: "smooth"})
+                window.scrollTo({top: 1160, behavior: "smooth"})
             }else if(text === 'Fale Conosco') {
-                window.scrollTo({top: 1940, behavior: "smooth"})
+                window.scrollTo({top: 1760, behavior: "smooth"})
             }
             
         }}>
